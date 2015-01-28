@@ -45,8 +45,10 @@ typedef enum {
 		
 		SERIAL_TX   = PA_2,
     SERIAL_RX   = PA_3,
-		
-		
+		USER_KEY		= PA_6,
+		AN_OUT1			= PA_4,
+		AN_OUT2			= PA_5,
+	
     LED1        = PD_13,
     LED2        = PD_12,
     LED3        = PD_13,

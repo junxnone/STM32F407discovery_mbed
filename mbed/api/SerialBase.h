@@ -120,7 +120,8 @@ public:
     static void _irq_handler(uint32_t id, SerialIrq irq_type);
 
 protected:
-    SerialBase(PinName tx, PinName rx);
+  
+		SerialBase(PinName tx, PinName rx);
     virtual ~SerialBase() {
     }
 
