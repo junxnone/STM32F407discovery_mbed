@@ -253,10 +253,10 @@ typedef enum {
     LED5        = PD_14,
     LED6        = PD_15,
     USER_BUTTON = PA_0,
-    SERIAL_TX   = PA_2,	/* USART2 */
-    SERIAL_RX   = PA_3,
+
     USBTX       = PA_2,	/* USART2 */
     USBRX       = PA_3,
+		
     I2C_SCL     = PB_8,	/* I2C1 */
     I2C_SDA     = PB_9,
     SPI_MOSI    = PA_7,
@@ -266,8 +266,37 @@ typedef enum {
     PWM_OUT     = PB_3,
 		AN_OUT1			= PA_4,
 		AN_OUT2			= PA_5,
-		AN12_IN8			= PB_0,
-		AN12_IN9			= PB_1,
+		//UART PIN
+		UART1_TX		=PB_6,
+		UART1_RX		=PB_7,
+		UART2_TX		= PA_2,
+		UART2_RX		= PA_3,
+		UART4_TX		= PC_10,
+		UART4_RX		= PC_11,
+		UART5_TX		= PC_12,
+		UART5_RX		= PD_2,
+		UART6_TX		=	PC_6,
+		UART6_RX		=	PC_7,
+		//ADC PIN
+		AN12_IN0		= PA_0,
+		AN12_IN1		= PA_1,
+		AN12_IN2		= PA_2,
+		AN12_IN3		= PA_3,
+		AN12_IN4		= PA_4,
+		AN12_IN5		= PA_5,
+		AN12_IN6		= PA_6,
+		AN12_IN7		= PA_7,
+		AN12_IN8		= PB_0,
+		AN12_IN9		= PB_1,
+		AN12_IN10		= PC_0,
+		AN12_IN11		= PC_1,
+		AN12_IN12		= PC_2,
+		AN12_IN13		= PC_3,
+		AN12_IN14		= PC_4,
+		AN12_IN15		= PC_5,
+
+
+		
     // Not connected
     NC = (int)0xFFFFFFFF
 } PinName;

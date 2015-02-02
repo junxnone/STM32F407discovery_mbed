@@ -163,7 +163,7 @@ uint16_t analogin_read_u16(analogin_t *obj)
 float analogin_read(analogin_t *obj)
 {
     uint16_t value = adc_read(obj);
-    return (float)value * (1.0f / (float)0xFFF); // 12 bits range
+    return (float)value * (3.0f / (float)0xFFF); // 12 bits range
 }
 
 #endif

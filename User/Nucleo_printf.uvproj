@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>mbed NUCLEO_F411RE</TargetName>
+      <TargetName>STM32F407_DISCOVER_MBED</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -334,7 +334,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>4</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -343,11 +343,11 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>0</wLevel>
+            <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <VariousControls>
-              <MiscControls>--gnu </MiscControls>
+              <MiscControls>--gnu --no_rtti </MiscControls>
               <Define>STM32F4XX, HSE_VALUE=8000000</Define>
               <Undefine></Undefine>
               <IncludePath>..\mbed\api;..\mbed\common;..\mbed\hal;..\mbed\targets\cmsis;..\mbed\targets\cmsis\TARGET_STM\TARGET_STM32F4;..\mbed\targets\hal\TARGET_STM\TARGET_STM32F4;..\mbed\targets\hal\TARGET_STM\TARGET_STM32F4\TARGET_DISCO_F407VG;..\mbed\targets\cmsis\TARGET_STM\TARGET_STM32F4\TARGET_STM32F407VG</IncludePath>
@@ -547,11 +547,6 @@
               <FilePath>..\mbed\common\RawSerial.cpp</FilePath>
             </File>
             <File>
-              <FileName>retarget.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\mbed\common\retarget.cpp</FilePath>
-            </File>
-            <File>
               <FileName>rtc_time.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\mbed\common\rtc_time.c</FilePath>
@@ -615,6 +610,11 @@
               <FileName>wait_api.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\mbed\common\wait_api.c</FilePath>
+            </File>
+            <File>
+              <FileName>retarget.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\mbed\common\retarget.cpp</FilePath>
             </File>
           </Files>
         </Group>

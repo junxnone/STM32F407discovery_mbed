@@ -22,7 +22,6 @@ namespace mbed {
 
 Serial::Serial(PinName tx, PinName rx, const char *name) : SerialBase(tx, rx), Stream(name) {
 }
-
 int Serial::_getc() {
     return _base_getc();
 }

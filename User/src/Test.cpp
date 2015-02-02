@@ -9,16 +9,17 @@
 #include "Test.h"
 
 
+#if PWMOUT_TEST
+PwmOut led(PWM_OUT);
+#endif
 #if SERIAL_TEST
-Serial pc(SERIAL_TX, SERIAL_RX);
+RawSerial pc(UART6_TX, UART6_RX);
 #endif
 #if ANIN_TEST
-AnalogIn AdcIn1(AN12_IN8);
-AnalogIn AdcIn2(AN12_IN9);
+AnalogIn AdcIn1(AN12_IN0);
 #endif
 #if DOUT_TEST
 DigitalOut myled2(LED2);
-DigitalOut myled5(LED5);
 #endif
 #if DIN_TEST
  DigitalOut myled6(LED6);
@@ -30,14 +31,22 @@ DigitalOut myled5(LED5);
 #endif	
 void Test()
 {		
-	
-
-	
 		#if SERIAL_TEST
 		SerialTest();
 		#endif
+		HisTest();	
+}
+/**
+*	@brief 已经测试过的功能
+*
+*/
+void HisTest()
+{
 		#if ANIN_TEST
 		AnalogInTest();
+		#endif
+		#if PWMOUT_TEST
+		PWMOutTest();
 		#endif
 		#if DOUT_TEST
 		DigitalOutTest();
@@ -48,9 +57,22 @@ void Test()
 		#if ANOUT_TEST
 		AnalogOutTest();
 		#endif
+
 }
-
-
+/**
+* @brief PWMOUT 测试
+* 
+*/
+#if PWMOUT_TEST
+void PWMOutTest()
+{
+ 	led = (float)(led + 0.1);
+	wait(0.2);
+	if(led == (float)1.0) {
+		led = 0;
+	}
+}
+#endif
 /**
 * @brief Serial 测试
 * 
@@ -58,7 +80,9 @@ void Test()
 #if SERIAL_TEST
 void SerialTest()
 {
-		pc.printf("Hello World !\n");
+		static int i=0;
+		i++;
+		pc.printf("Hello World !Cnt=%d\n",i);
 }
 #endif	
 /**
@@ -69,7 +93,7 @@ void SerialTest()
 void DigitalOutTest()
 {
 	myled2= !myled2;
-	myled5= !myled5;
+
 }
 #endif
 /**
@@ -91,11 +115,8 @@ void DigitalInTest()
 #if ANIN_TEST
 void AnalogInTest()
 {
-
-	if(AdcIn1 > 0.5) {
-// 		printf("Too hot! (%f)", temperature.read());
-		}
-
+	pc.printf("ADC now detect: (%f)\r\n", AdcIn1.read());
+	pc.printf("ADC IS : %d\r\n",AdcIn1.read_u16());
 }
 #endif
 /**

@@ -57,7 +57,7 @@ public:
      *    Either tx or rx may be specified as NC if unused
      */
     RawSerial(PinName tx, PinName rx);
-
+// 			virtual	~RawSerial(){}
     /** Write a char to the serial port
      *
      * @param c The char to write
